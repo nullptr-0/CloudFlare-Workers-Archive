@@ -1,0 +1,112 @@
+﻿export default {
+  async fetch(request, env) {
+    let ua=request.headers.get("User-Agent");
+    ua = ua ? ua.toString():"";
+    const mobileHeader=/(?:phone|windows\s+phone|ipod|blackberry|(?:android|bb\d+|meego|silk|googlebot) .+? mobile|palm|windows\s+ce|opera\ mini|avantgo|mobilesafari|docomo)/.test(ua.toLowerCase());
+    let resp=`
+<html>
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control " content="no-cache,must-revalidate">
+    <meta name="description" content="">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>Happy Mother's Day!</title>
+    <style type="text/css">
+        html, body, div, h1, h2, h3, h4, h5, h6, p, span, img, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-size: `+(mobileHeader?"10":"23")+`px;
+            font-family: 'Verdana','Arial';
+            color: rgb(200, 173, 10, 0.80);
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-image: url(https://s3.amazonaws.com/blog.dentrodahistoria.com.br/wp-content/uploads/2020/01/29175801/rainha-iduna-800x437.jpg);
+            background-position: center top;
+            background-size: cover;
+        }
+
+        .content {
+            width: `+(mobileHeader?"400":"700")+`px;
+            height: `+(mobileHeader?"400":"480")+`px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: `+(mobileHeader?"-60":"-80")+`px;
+            margin-left: `+(mobileHeader?"-200":"-350")+`px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            overflow: hidden;
+            z-index: 2;
+            padding: 50px;
+            box-sizing: border-box;
+        }
+
+            .content::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                -webkit-filter: blur(20px);
+                -moz-filter: blur(20px);
+                -ms-filter: blur(20px);
+                -o-filter: blur(20px);
+                filter: blur(20px);
+                z-index: -3;
+                margin: -30px;
+                background-image: url(https://s3.amazonaws.com/blog.dentrodahistoria.com.br/wp-content/uploads/2020/01/29175801/rainha-iduna-800x437.jpg);
+                background-position: center top;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .content h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .content p {
+                text-align: center;
+                line-height: 1.5;
+            }
+            .content footer {
+                font-size: 10px;
+                text-align: center;
+                line-height: 1.5;
+            }
+    </style>
+</head>
+<body>
+    <script>alert("Please change your browser if the page displays improperly.\\n如果页面无法正常显示，请更换浏览器再试。\\n\\nCurrent client: `+ua+`")</script>
+    <div class="container">
+        <div class="content">
+            <h1>Happy Mother's Day!<br />母亲节快乐！</h1>
+            <p>Best wishes and special thanks to all moms!</p>
+            <p>Thank you for your love, devotion and sacrifice.<br />You are always our heroines.</p>
+            <p>谨将最好的祝福和这份特别的感谢送给每一位母亲！</p>
+            <p>感谢你们的关爱和付出，以及做出的牺牲。<br />你们永远是我们心目中最伟大的人。</p>
+            <footer>
+                <br />Visit home page <a href="https://zhengze.eu.org/">zhengze.eu.org</a> for more.
+                <br /><b>Copyright © Zhengze Zhu 2023. All rights reserved.</b>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+    `;
+    return new Response(resp, {
+      headers: {
+        "content-type": "text/html;charset=UTF-8",
+      },
+    });
+  }
+}

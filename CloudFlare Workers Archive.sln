@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2023-5-14_mother-s-day", "2023-5-14_mother-s-day", "{9DEA7AFB-B174-4FB9-B04E-6BDD30F161D1}"
+	ProjectSection(SolutionItems) = preProject
+		2023-5-14_mother-s-day\2023-5-14_mother-s-day.worker = 2023-5-14_mother-s-day\2023-5-14_mother-s-day.worker
+		2023-5-14_mother-s-day\https_s3.amazonaws.com_blog.dentrodahistoria.com.br_wp-content_uploads_2020_01_29175801_rainha-iduna-800x437.jpg = 2023-5-14_mother-s-day\https_s3.amazonaws.com_blog.dentrodahistoria.com.br_wp-content_uploads_2020_01_29175801_rainha-iduna-800x437.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
